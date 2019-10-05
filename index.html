@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="background-color:black;">
+  <input id="in" style="background-color:black; border:none; outline:none; color:black;" spellcheck="false" type="text" onkeypress="Function(event)" autofocus>
+
+  <p id="word" style="color:white;text-align:center; margin-top:10%; font-size:400px;"></p>
+  <script>
+    function Function(event) {
+      var x = event.which || event.keyCode;
+      var click = new Audio("click1.mp3");
+      var finish = new Audio("end.mp3");
+      if (x == 13) {
+        var input = document.getElementById("in").value;
+        if (input == "") {
+          document.getElementById("word").innerHTML = "No Word";
+          finish.play();
+        } else {
+          document.getElementById("word").innerHTML = input;
+          finish.play();
+        }
+      } else {
+        document.getElementById("word").innerHTML = String.fromCharCode(x);
+        click.play();
+      }
+    }
+  </script>
+</body>
+</html>
